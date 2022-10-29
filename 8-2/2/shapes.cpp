@@ -1,5 +1,4 @@
-// 나 이거 Rectangle부터 draw 함수 수정해야 된다.
-
+// 나 이제 Diamond draw만 하면 되는뎅...
 #include <iostream>
 #include <string>
 using namespace std;
@@ -108,7 +107,7 @@ void Draw(int canvas_width, int canvas_height){
     // 시작점(top left)의 mat 위에서의 실제 위치는 target_x+1, target_y+1
     if(target_x + width > canvas_width + 1){
         // case1. x와 y 모두 범위를 벗어난 경우
-        if(target_y + height > canvas_width + 1){
+        if(target_y + height > canvas_height + 1){
             for(int i=target_y+1; i<canvas_height+1; i++){
                 for(int j=target_x+1; j<canvas_width+1; j++){
                     mat[i][j] = brush;
@@ -117,7 +116,7 @@ void Draw(int canvas_width, int canvas_height){
         }
         // case2. x만 범위를 벗어나고, y는 범위 내 있는 경우
         else{
-            for(int i=target_y+1; i<target_y + length; i++){
+            for(int i=target_y+1; i<target_y + height; i++){
                 for(int j=target_x+1; j<canvas_width+1; j++){
                     mat[i][j] = brush;
                 }
@@ -126,17 +125,17 @@ void Draw(int canvas_width, int canvas_height){
     }
     else{
         // case3. x는 범위 내, y는 범위를 벗어난 경우
-        if(target_y + length > canvas_width + 1){
+        if(target_y + height > canvas_height + 1){
             for(int i=target_y+1; i<canvas_height+1; i++){
-                for(int j=target_x+1; j<target_x+length; j++){
+                for(int j=target_x+1; j<target_x+width; j++){
                     mat[i][j] = brush;
                 }
             }
         }
         // case4. x와 y 모두 범위 내에 있는 경우
         else{
-            for(int i=target_y+1; i<target_y+length; i++){
-                for(int j=target_x+1; j<target_x+length; j++){
+            for(int i=target_y+1; i<target_y+height; i++){
+                for(int j=target_x+1; j<target_x+width; j++){
                     mat[i][j] = brush;
                 }
             }
@@ -178,4 +177,6 @@ void Draw(int canvas_width, int canvas_height){
     for(int i=1; i<canvas_height+1; i++){
         mat[i][0] = to_string(i-1);
     }
+    // Diamond...?
+
 }
