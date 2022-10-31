@@ -3,20 +3,19 @@
 class Shape {
     public:
         Shape();
-        Shape(int target_x, int target_y, string brush);
 
-        double GetArea() {};
-        int GetPerimeter() {};
-        void Draw(int canvas_width, int canvas_height) {};
+        double GetArea();
+        int GetPerimeter();
+        void Draw(int canvas_width, int canvas_height);
     protected:
     // Define common properties for all shape types
         int target_x, target_y;
-        string brush;
+        std::string brush;
 };
 
 class Square : public Shape{
     public:
-        Square(int length);
+        Square(int target_x, int target_y, int length, std::string brush);
         double GetArea();
         int GetPerimeter();
         void Draw(int canvas_width, int canvas_height);
@@ -26,7 +25,7 @@ class Square : public Shape{
 
 class Rectangle : public Shape{
     public:
-        Rectangle(int width, int height);
+        Rectangle(int target_x, int target_y, int width, int height, std::string brush);
         double GetArea();
         int GetPerimeter();
         void Draw(int canvas_width, int canvas_height);
@@ -36,7 +35,7 @@ class Rectangle : public Shape{
 
 class Diamond : public Shape{
     public:
-        Diamond(int distance);
+        Diamond(int target_x, int target_y, int distance, std::string brush);
         double GetArea();
         int GetPerimeter();
         void Draw(int canvas_width, int canvas_height);
