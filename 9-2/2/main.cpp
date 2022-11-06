@@ -14,11 +14,8 @@ int main(){
             string input;
             cin >> input;
             if(input == "quit"){
-                for(int i=0; i<commands.size(); i++){
-                    delete commands[i];
-                }
                 break;
-            } 
+            }
             else if(input == "add"){
                 string command_shape;
                 cin >> command_shape;
@@ -28,13 +25,13 @@ int main(){
                     cin >> x >> y >> w >> h >> b;
                     commands.push_back(new Rectangle(x, y, w, h, b));
                 }
-                else if(command_shape == "up_tri"){
+                else if(command_shape == "tri_up"){
                     int x, y, h;
                     char b;
                     cin >> x >> y >> h >> b;
                     commands.push_back(new UpTriangle(x, y, h, b));
                 }
-                else if(command_shape == "down_tri"){
+                else if(command_shape == "tri_down"){
                     int x, y, h;
                     char b;
                     cin >> x >> y >> h >> b;
@@ -46,8 +43,8 @@ int main(){
                     cin >> x >> y >> d >> b;
                     commands.push_back(new Diamond(x, y, d, b));
                 }
-                else{ 
-                    cout << "Invalid Input - Shape Command Error " << endl; 
+                else{
+                    cout << "Invalid Input - Shape Command Error " << endl;
                     break;
                 }
             }
@@ -60,6 +57,7 @@ int main(){
                 commands.resize(commands.size() - 1);
             }
             else if(input == "draw"){
+                myCanvas.Clear();
                 for(int i=0; i<commands.size(); i++){
                     commands[i]->Draw(&myCanvas);
                 }
@@ -76,8 +74,8 @@ int main(){
                 cin >> new_col >> new_row;
                 myCanvas.Resize(new_col, new_row);
             }
-            else{ 
-                cout << "Invalid Input - Canvas Command Error" << endl; 
+            else{
+                cout << "Invalid Input - Canvas Command Error" << endl;
                 break;
             }
        }

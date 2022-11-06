@@ -32,14 +32,12 @@ void Canvas::Resize(size_t w, size_t h){
     }
     delete[] cnv;
     // 2nd. Re-Allocate & Initialize
-    cnv = new char*[h];
-    for(int i=0; i < h; i++){
-        cnv[i] = new char[w];
-    }
-    for(int i=0; i<h; i++){
-        for(int j=0; j<w; j++){
-            cnv[i][j] = '.';
-        }
+    //Canvas(h, w);
+    row=h;
+    col=w;
+    cnv = new char*[row];
+    for(int i=0; i<row; i++){
+            cnv[i] = new char[col];
     }
 }
 bool Canvas::DrawPixel(int x, int y, char brush){
@@ -65,7 +63,6 @@ void Canvas::Print(){
         }
         cout << endl;
     }
-
 }
 void Canvas::Clear(){
     for(int i=0; i<row; i++){
@@ -114,9 +111,8 @@ void UpTriangle::Draw(Canvas* canvas){
     }
 }
 void UpTriangle::PrintShapeInfo(){
-    cout << "tri_up " << target_x << " " << target_y << " " << height << " " << brush << endl;
+    cout << "up_tri " << target_x << " " << target_y << " " << height << " " << brush << endl;
 }
-
 // DownTriangle Class
 DownTriangle::DownTriangle(int target_x, int target_y, int height, char brush){
     this->target_x = target_x;
@@ -132,7 +128,7 @@ void DownTriangle::Draw(Canvas* canvas){
     }
 }
 void DownTriangle::PrintShapeInfo(){
-    cout << "tri_down " << target_x << " " << target_y << " " << height << " " << brush << endl;
+    cout << "down_tri" << target_x << " " << target_y << " " << height << " " << brush << endl;
 }
 // Diamond Class
 Diamond::Diamond(int target_x, int target_y, int distance, char brush){
@@ -159,12 +155,3 @@ void Diamond::Draw(Canvas* canvas){
 void Diamond::PrintShapeInfo(){
     cout << "diamond " << target_x << " " << target_y << " " << distance << " " << brush << endl;
 }
-
-
-
-
-/* Memo : 11.03
-1. Diamond : Segmentation Fault - 반복문 DrawPixel 확인하기..
-2. Delete Command
-3. Resize : Double Free or Corruption (out) /  Aborted (Core Dumped)
-*/
