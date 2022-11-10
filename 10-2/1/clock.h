@@ -48,7 +48,7 @@ class GrandfahterClock : public MechanicalClock{
         void displayTime();
 };
 
-// DigitalClock : Wirst Clock
+// DigitalClock : Wrist Clock
 class DigitalClock : public Clock{
     public:
         DigitalClock(int hour, int minute, int second, double driftPerSecond);

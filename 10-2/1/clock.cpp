@@ -10,7 +10,7 @@ Clock::Clock(int hour, int minute, int second, double driftPerSecond){
     _driftPerSecond = driftPerSecond;
 }
 void Clock::reset(){
-
+    _clockTime.reset();
 }
 void Clock::tick(){
 
@@ -18,7 +18,7 @@ void Clock::tick(){
 
 // Natural Clock classes
 NaturalClock::NatrualClock(int hour, int minute, int second, double driftPerSecond){
-
+    _clockTime(hour, minute, second);
 }
 SundialClock::SundialClock(int hour, int minute, int second, double driftPerSecond){
 
@@ -63,5 +63,5 @@ AtomicClock::AtomicClock(int hour, int minute, int second, double driftPerSecond
 
 }
 AtomicClock::displayTime(){
-    
+
 }
