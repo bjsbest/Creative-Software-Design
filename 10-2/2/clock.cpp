@@ -26,6 +26,12 @@ void SundialClock::displayTime(){
     _clockTime.display();
     cout << ", total drift : " << _totalDrift << endl;
 }
+void SundialClock::displayAlarm(){
+    cout << "Sundial Alarm at ";
+    _clockTime.display();
+    cout << endl;
+}
+
 
 // Mechanical Clock classes
 MechanicalClock::MechanicalClock(int hour, int minute, int second, double driftPerSecond) : Clock(hour, minute, second, driftPerSecond){}
@@ -35,12 +41,24 @@ void CuckooClock::displayTime(){
     _clockTime.display();
     cout << ", total drift : " << _totalDrift << endl;
 }
+void CuckooClock::displayAlarm(){
+    cout << "Cuckoo Alarm at ";
+    _clockTime.display();
+    cout << endl;
+}
+
 GrandfahterClock::GrandfahterClock(int hour, int minute, int second) : MechanicalClock(hour, minute, second, ERROR_GRANDFATHER){}
 void GrandfahterClock::displayTime(){
     cout << "GrandfatherClock ";
     _clockTime.display();
     cout << ", total drift : " << _totalDrift << endl;
 }
+void GrandfahterClock::displayAlarm(){
+    cout << "Grandfahter Alarm at ";
+    _clockTime.display();
+    cout << endl;
+}
+
 
 // Digital Clock classess
 DigitalClock::DigitalClock(int hour, int minute, int second, double driftPerSecond) : Clock(hour, minute, second, driftPerSecond){}
@@ -50,6 +68,12 @@ void WristClock::displayTime(){
     _clockTime.display();
     cout << ", total drift : " << _totalDrift << endl;
 }
+void WristClock::displayAlarm(){
+    cout << "Wirst Alarm at ";
+    _clockTime.display();
+    cout << endl;
+}
+
 
 // Quantum Clock classes
 QuantumClock::QuantumClock(int hour, int minute, int second, double driftPerSecond) : Clock(hour, minute, second, driftPerSecond){}
@@ -58,4 +82,9 @@ void AtomicClock::displayTime(){
     cout << "AtomicClock ";
     _clockTime.display();
     cout << ", total drift : " << _totalDrift << endl;
+}
+void AtomicClock::displayAlarm(){
+    cout << "Atomic Alarm at ";
+    _clockTime.display();
+    cout << endl;
 }
