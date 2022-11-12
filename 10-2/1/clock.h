@@ -18,7 +18,7 @@ class Clock{
         Clock(int hour, int minute, int second, double driftPerSecond);
         void reset();
         void tick();
-        virtual void displayTime() = 0 // Pure Virtual Function
+        virtual void displayTime() = 0; // Pure Virtual Function
 };
 
 // NaturalClock - Sundial Clock
@@ -28,7 +28,7 @@ class NaturalClock : public Clock{
 };
 class SundialClock : public NaturalClock{
     public:
-        SundialClock(int hour, int minute, int second, double driftPerSecond);
+        SundialClock(int hour, int minute, int second);
         void displayTime();
 };
 
@@ -39,12 +39,12 @@ class MechanicalClock : public Clock{
 };
 class CuckooClock : public MechanicalClock{
     public:
-        CuckooClock(int hour, int minute, int second, double driftPersecond);
+        CuckooClock(int hour, int minute, int second);
         void displayTime();
 };
 class GrandfahterClock : public MechanicalClock{
     public:
-        GrandfahterClock(int hour, int minute, int second, double driftPerSecond);
+        GrandfahterClock(int hour, int minute, int second);
         void displayTime();
 };
 
@@ -55,7 +55,7 @@ class DigitalClock : public Clock{
 };
 class WristClock : public DigitalClock{
     public:
-        WristClock(int hour, int minute, int second, double driftPerSecond);
+        WristClock(int hour, int minute, int second);
         void displayTime();
 };
 
@@ -66,6 +66,6 @@ class QuantumClock : public Clock{
 };
 class AtomicClock : public QuantumClock{
     public:
-        AtomicClock(int hour, int minute, int second, double driftPerSecond);
+        AtomicClock(int hour, int minute, int second);
         void displayTime();
 };
