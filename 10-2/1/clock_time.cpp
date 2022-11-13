@@ -12,8 +12,7 @@ ClockTime:: ClockTime (int hour, int minute, int second, int secondsPerTick) : h
 }
 
 void ClockTime::reset ()
-// The purpose of this method is to reset the time to the recorded
-// start time.
+// The purpose of this method is to reset the time to the recorded start time.
 {
   unsigned int temp = startTime_;
 

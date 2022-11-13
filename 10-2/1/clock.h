@@ -8,7 +8,6 @@
 #define ERROR_ATOMIC 0.000034722
 
 // class declaration
-
 class Clock{
     protected:
         ClockTime _clockTime;

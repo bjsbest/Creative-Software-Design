@@ -1,8 +1,7 @@
 #ifndef CLOCK_TIME_H
 #define CLOCK_TIME_H
 
-// Define a set of symbolic constants used to specify various values related
-// to time keeping.
+// Define a set of symbolic constants used to specify various values related to time keeping.
 #define SECONDS_PER_MINUTE      60
 #define MINUTES_PER_HOUR        60
 #define HOURS_PER_DAY           24
