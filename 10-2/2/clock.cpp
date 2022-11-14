@@ -69,7 +69,7 @@ void WristClock::displayTime(){
     cout << ", total drift : " << _totalDrift << endl;
 }
 void WristClock::displayAlarm(){
-    cout << "Wirst Alarm at ";
+    cout << "Wrist Alarm at ";
     _clockTime.display();
     cout << endl;
 }
