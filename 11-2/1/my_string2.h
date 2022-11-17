@@ -12,7 +12,8 @@ public:
  friend std::ostream& operator<<(std::ostream& out, MyString2& my_string);
  friend std::istream& operator>>(std::istream& in, MyString2& my_string);
  //additional constructor & assignment operator
- 
+ MyString2();
+ MyString2(MyString2& p);
  MyString2 operator=(MyString2& p);
 private:
  std::string str;
