@@ -6,7 +6,7 @@ using namespace std;
 int main(){
     MyString2 a, b;
     MyString2* c1; // for "Copy Constructor"
-    MyString2* c2; // for "Assignment Operator"
+    MyString2 c2; // for "Assignment Operator"
     while(true){
     // new, set, print command (blue curl braces)
         string command, set_option, option_cmd;
@@ -82,19 +82,19 @@ int main(){
                             if(_second == "a"){
                                 // Assignment Construct a+a
                                 MyString2 d(a+a);
-                                *c2 = d;
+                                c2 = d;
                             }
                             else if(_second == "b"){
                                 // Assignment Construct a+b
                                 MyString2 d(a+b);
-                                *c2 = d;
+                                c2 = d;
                             }
                         }
                         else if(op == '*'){
                             cin >> mul;
                             // Assignment Construct a*mul
                             MyString2 d(a*mul);
-                            *c2 = d;
+                            c2 = d;
                         }
                     }
                     else if(_first == "b"){
@@ -104,19 +104,19 @@ int main(){
                             if(_second == "a"){
                                 // Assignment Construct b+a
                                 MyString2 d(b+a);
-                                *c2 = d;
+                                c2 = d;
                             }
                             else if(_second == "b"){
                                 // Assignment Construct b+b
                                 MyString2 d(b+b);
-                                *c2 = d;
+                                c2 = d;
                             }
                         }
                         else if(op == '*'){
                             cin >> mul;
                             // Assignment Construct a*mul
                             MyString2 d(b*mul);
-                            *c2 = d;
+                            c2 = d;
                         }
                     }
                 }
@@ -182,7 +182,7 @@ int main(){
                     delete c1;
                 }
                 else if(set_option == "assign"){
-                    cout << *c2 << endl;
+                    cout << c2 << endl;
                 }
             }
         }
