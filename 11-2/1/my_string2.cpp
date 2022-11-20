@@ -13,7 +13,7 @@ MyString2 MyString2::operator+(const MyString2& b){
     return s;
 }
 MyString2 MyString2::operator*(const int b){
-    MyStrin2 s;
+    MyString2 s;
     s.str = this->str;
     for(int i=1; i<b; i++){
         s.str += this->str;
@@ -28,9 +28,8 @@ istream& operator>>(istream& in, MyString2& my_string){
     in >> my_string.str;
     return in;
 }
-MyString2 MyString2::operator=(MyString2& p){
-    MyString2 s;
-    s.str = p.str;
+MyString2& MyString2::operator=(MyString2& p){
+    this->str = p.str;
     cout << "(Assignment Operator)" << endl;
-    return s;
+    return *this;
 }

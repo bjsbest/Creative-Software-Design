@@ -14,7 +14,7 @@ public:
  //additional constructor & assignment operator
  MyString2();
  MyString2(MyString2& p);
- MyString2 operator=(MyString2& p);
+ MyString2& operator=(MyString2& p);
 private:
  std::string str;
 };

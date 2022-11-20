@@ -9,7 +9,7 @@ int main(){
     MyString2 c2; // for "Assignment Operator"
     while(true){
     // new, set, print command (blue curl braces)
-        string command, set_option, option_cmd;
+        string command, option_cmd, set_option;
         cin >> command;
         if(command == "quit"){break;}
         else if(command == "new"){
