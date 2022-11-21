@@ -7,9 +7,9 @@ int main(){
     MyString2 a, b;
     MyString2* c1; // for "Copy Constructor"
     MyString2 c2; // for "Assignment Operator"
+    string command, option_cmd, set_option;
     while(true){
     // new, set, print command (blue curl braces)
-        string command, option_cmd, set_option;
         cin >> command;
         if(command == "quit"){break;}
         else if(command == "new"){

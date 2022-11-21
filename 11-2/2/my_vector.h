@@ -15,10 +15,11 @@ MyVector operator-(const int b);
 friend std::ostream& operator<< (std::ostream& out, MyVector& b);
 friend std::istream& operator>> (std::istream& in, MyVector& b);
 // Add an additional constructor or operator if needed.
-// Operator for resize
-MyVector operator=(MyVector& v);
+// Copy constructor
+MyVector(MyVector& vec);
 private:
 int length;
 double *a;
 };
 #endif // __MY_VECTOR_H_
+
