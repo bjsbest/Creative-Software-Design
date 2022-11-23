@@ -21,6 +21,7 @@ class MyContainer{
         T * obj_arr = NULL;
         int n_elements;
 };
+
 template<class T>
 std::istream& operator>> (std::istream &in, MyContainer<T> &b){
     for(int i=0; i<b.size(); i++){
@@ -28,6 +29,7 @@ std::istream& operator>> (std::istream &in, MyContainer<T> &b){
     }
     return in;
 }
+
 template<class T>
 std::ostream& operator<< (std::ostream &out, MyContainer<T> &b){
     for(int i=0; i<b.size(); i++){
