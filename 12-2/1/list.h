@@ -24,6 +24,7 @@ class List{
         }
     }
 
+    // List : When an argument is an array, The function makes a linked list from this array.
     List(T* arr, int n_nodes){ // create a list with n_nodes.
         head = new Node<T>();
         head->data = arr[0];
