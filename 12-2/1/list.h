@@ -20,7 +20,7 @@ class List{
         while(n){
             Node<T>* tmp = n;
             n = n->next;
-            delete tmp;
+            delete tmp; // delete all nodes in consecutive order.
         }
     }
 
@@ -41,6 +41,33 @@ class List{
     }
 
     void insert_at(int idx, const T& data){
+        // 기존에 있던 list의 idx 값을 뒤로 밀어내고, 그 자리를 새로운 node가 채운다.
+        // 새로운 node를 "마지막에" 붙여놓고, idx부터 값을 하나씩 뒤로 미룬다.
+        Node<T>* new_n = new Node<T>();
+        new_n->data = data;
+        new_n->next = NULL;
+
+        /* 마지막 위치에 노드 붙이기
+        Node<T>* n = head;
+        while(true){
+            if(n != NULL){
+                Node<T>* temp = n->next;
+                n = temp;
+            }
+            else{ 
+                n->next = new_n;
+                break;
+            }
+        } */
+        
+        // "원하는" 위치에 노드 붙이기
+        Node<T>* new_n = new Node<T>();
+        new_n-> data = data;
+        new_n->next = NULL;
+
+        for(int cnt = 0; i<idx + 1; cnt++){
+            
+        }
 
     }
 
