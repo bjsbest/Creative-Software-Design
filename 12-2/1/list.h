@@ -8,7 +8,7 @@ class Node{
     public:
         T data;
         Node<T>* next;
-}
+};
 
 template <class T>
 class List{
@@ -50,30 +50,44 @@ class List{
         Node<T>* n = head;
         int cnt = 0;
         while(cnt < idx){
-            Node<T>* temp = n;
-            n = n->next;
+            if(n->next != NULL){
+                n = n->next;
+            }
+            else{break;}
+        }
+        
+        if(cnt == 0){
+            new_n->next = n;
+            head = new_n;
+        }
+        else if(n->next == NULL){
+            n->next = new_n;
+        }
+        else{
+            new_n->next = n;
         }
     }
 
-    void remove_at(int idx){
+    /*void remove_at(int idx){
         // n번째 indext의 node를 remove하면 n-1번째의 next를 기존 n+1번째의 node로 옮긴다.
         Node<T>* n = head;
-    }
+    } */
 
     void pop_back(){
         Node<T>* n = head;
+        Node<T>* temp = n;
         while(n->next != NULL){
-            Node<T>* temp = n->next;
-            n = temp;
+            temp = n;
+            n = n->next;
         }
-        // while 탈출 -> n = NULL
+        temp->next = NULL;
         delete n;
     }
 
     void push_back(const T& val){
         // 마지막 위치에 노드 붙이기
         Node<T>* new_n = new Node<T>();
-        new_n->data = data;
+        new_n->data = val;
         new_n->next = NULL;
 
         Node<T>* n = head;
@@ -104,6 +118,16 @@ class List{
     }
 
     friend ostream& operator<<(ostream& out, List& rhs){ // print out nodes.
-
+        Node<T>* n = rhs.head;
+        while(n != NULL){
+            if(n->next == NULL){
+                out << n->data;
+            }
+            else{
+                out << n->data << ", ";
+            }
+            n = n->next;
+        }
+        return out;
     }
-}
+};
