@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 using namespace std;
 
@@ -48,30 +47,43 @@ class List{
         new_n->data = data;
 
         Node<T>* n = head;
+        Node<T>* temp = n;
         int cnt = 0;
         while(cnt < idx){
-            if(n->next != NULL){
-                n = n->next;
-            }
-            else{break;}
+            temp = n;
+            n = n->next;
+            cnt++;
+            if(temp->next == NULL) break;
         }
         
-        if(cnt == 0){
-            new_n->next = n;
-            head = new_n;
-        }
-        else if(n->next == NULL){
-            n->next = new_n;
+        if(temp->next == NULL){
+            temp->next = new_n;
+            new_n->next = NULL;
         }
         else{
+            temp->next = new_n;
             new_n->next = n;
         }
     }
 
-    /*void remove_at(int idx){
-        // n번째 indext의 node를 remove하면 n-1번째의 next를 기존 n+1번째의 node로 옮긴다.
+    void remove_at(int idx){ // 해당 인덱스의 노드 끊어내기
         Node<T>* n = head;
-    } */
+        Node<T>* temp = n;
+
+        int cnt = 0;
+        while(cnt < idx){
+            temp = n;
+            n = n->next;
+
+            cnt++;
+            if(temp->next == NULL) break;
+        }
+        // delete temp.
+        // temp->next가 n이고 n을 없애고 싶다.
+        Node<T>* temp2 = n->next;
+        temp->next = temp2;
+        delete n;
+    }
 
     void pop_back(){
         Node<T>* n = head;
@@ -92,9 +104,8 @@ class List{
 
         Node<T>* n = head;
         while(true){
-            if(n != NULL){
-                Node<T>* temp = n->next;
-                n = temp;
+            if(n->next != NULL){
+                n = n->next;
             }
             else{ 
                 n->next = new_n;
