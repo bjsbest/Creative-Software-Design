@@ -19,7 +19,6 @@ int main(){
             throw string("invalid input");
     }
 
-    //implement here
     catch(...){
         cout << "Exception handler" << endl;
     }

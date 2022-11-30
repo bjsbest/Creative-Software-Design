@@ -19,7 +19,6 @@ int main(){
             throw string("invalid input");
     }
 
-    //implement here
     catch(C& c){
         cout << "throw C has been called" << endl;
     }
